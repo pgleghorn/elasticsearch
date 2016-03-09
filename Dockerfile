@@ -16,7 +16,7 @@ RUN \
   tar xvzf $ES_PKG_NAME.tar.gz && \
   rm -f $ES_PKG_NAME.tar.gz && \
   mv /$ES_PKG_NAME /elasticsearch
-
+  
 # Define mountable directories.
 VOLUME ["/data"]
 
@@ -26,11 +26,11 @@ ADD config/elasticsearch.yml /elasticsearch/config/elasticsearch.yml
 # Define working directory.
 WORKDIR /data
 
-# Define default command.
-CMD ["/elasticsearch/bin/elasticsearch"]
-
 # head plugin
 RUN /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head
+
+# Define default command.
+CMD ["/elasticsearch/bin/elasticsearch"]
 
 # Expose ports.
 #   - 9200: HTTP
