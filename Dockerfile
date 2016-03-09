@@ -29,6 +29,9 @@ WORKDIR /data
 # Define default command.
 CMD ["/elasticsearch/bin/elasticsearch"]
 
+# head plugin
+RUN /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head
+
 # Expose ports.
 #   - 9200: HTTP
 #   - 9300: transport
